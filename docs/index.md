@@ -1,173 +1,50 @@
----
-icon: lucide/rocket
----
+# EvolvePro Workshop
 
-# Get started
+AI 기반 단백질 진화 최적화 도구 **EvolvePro**를 사용하기 위한 핸즈온 가이드입니다.
 
-For full documentation visit [zensical.org](https://zensical.org/docs/).
+## EvolvePro란?
 
-## Commands
+EvolvePro는 Protein Language Model(PLM) 임베딩과 Active Learning을 결합하여 단백질을 최적화하는 도구입니다.
 
-* [`zensical new`][new] - Create a new project
-* [`zensical serve`][serve] - Start local web server
-* [`zensical build`][build] - Build your site
+- 단백질 서열에서 PLM 임베딩을 추출
+- Random Forest 회귀 모델로 활성을 예측
+- **라운드당 10개** 데이터포인트로 반복 학습
+- 다목적 최적화 가능 (활성, 안정성 등)
 
-  [new]: https://zensical.org/docs/usage/new/
-  [serve]: https://zensical.org/docs/usage/preview/
-  [build]: https://zensical.org/docs/usage/build/
+기존 방법이 수천 개의 변이체를 스크리닝해야 했다면, EvolvePro는 **수십 개**로 최적 변이체에 도달합니다.
 
-## Examples
+> Jiang et al., "Rapid in silico directed evolution by a protein language model with EVOLVEpro", *Science* (2024)
 
-### Admonitions
+## 워크플로우
 
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/)
-
-!!! note
-
-    This is a **note** admonition. Use it to provide helpful information.
-
-!!! warning
-
-    This is a **warning** admonition. Be careful!
-
-### Details
-
-> Go to [documentation](https://zensical.org/docs/authoring/admonitions/#collapsible-blocks)
-
-??? info "Click to expand for more info"
-
-    This content is hidden until you click to expand it.
-    Great for FAQs or long explanations.
-
-## Code Blocks
-
-> Go to [documentation](https://zensical.org/docs/authoring/code-blocks/)
-
-``` python hl_lines="2" title="Code blocks"
-def greet(name):
-    print(f"Hello, {name}!") # (1)!
-
-greet("Python")
+```
+1. Process → 2. PLM → 3. EVOLVEpro → 4. Plot
 ```
 
-1.  > Go to [documentation](https://zensical.org/docs/authoring/code-blocks/#code-annotations)
+| 단계 | 설명 |
+|------|------|
+| **Process** | 변이체 서열과 활성 데이터를 FASTA/CSV로 정리 |
+| **PLM** | ESM-2 등 언어 모델로 임베딩 벡터 추출 (GPU 필요) |
+| **EVOLVEpro** | Random Forest로 활성 예측 → 다음 라운드 변이체 선택 |
+| **Plot** | 결과 시각화 및 최적 변이체 분석 |
 
-    Code annotations allow to attach notes to lines of code.
+## 사전 준비물
 
-Code can also be highlighted inline: `#!python print("Hello, Python!")`.
+| 항목 | 설명 |
+|------|------|
+| 컴퓨터 | Windows, macOS, 또는 Linux |
+| 인터넷 | 서버 접속에 필요 |
+| 관리자 연락처 | SSH 계정 발급 요청용 |
 
-## Content tabs
+## 진행 순서
 
-> Go to [documentation](https://zensical.org/docs/authoring/content-tabs/)
+1. [WSL2 설치](wsl2.md) (Windows 사용자만)
+2. [SSH 설정](ssh.md)
+3. [서버 환경 확인](server.md)
+4. [EvolvePro 설치](install.md)
+5. [데이터 준비](data.md)
+6. [PLM 임베딩 추출](plm.md)
+7. [EVOLVEpro 실행](run.md)
+8. [결과 시각화](visualize.md)
 
-=== "Python"
-
-    ``` python
-    print("Hello from Python!")
-    ```
-
-=== "Rust"
-
-    ``` rs
-    println!("Hello from Rust!");
-    ```
-
-## Diagrams
-
-> Go to [documentation](https://zensical.org/docs/authoring/diagrams/)
-
-``` mermaid
-graph LR
-  A[Start] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
-```
-
-## Footnotes
-
-> Go to [documentation](https://zensical.org/docs/authoring/footnotes/)
-
-Here's a sentence with a footnote.[^1]
-
-Hover it, to see a tooltip.
-
-[^1]: This is the footnote.
-
-
-## Formatting
-
-> Go to [documentation](https://zensical.org/docs/authoring/formatting/)
-
-- ==This was marked (highlight)==
-- ^^This was inserted (underline)^^
-- ~~This was deleted (strikethrough)~~
-- H~2~O
-- A^T^A
-- ++ctrl+alt+del++
-
-## Icons, Emojis
-
-> Go to [documentation](https://zensical.org/docs/authoring/icons-emojis/)
-
-* :sparkles: `:sparkles:`
-* :rocket: `:rocket:`
-* :tada: `:tada:`
-* :memo: `:memo:`
-* :eyes: `:eyes:`
-
-## Maths
-
-> Go to [documentation](https://zensical.org/docs/authoring/math/)
-
-$$
-\cos x=\sum_{k=0}^{\infty}\frac{(-1)^k}{(2k)!}x^{2k}
-$$
-
-!!! warning "Needs configuration"
-    Note that MathJax is included via a `script` tag on this page and is not
-    configured in the generated default configuration to avoid including it
-    in a pages that do not need it. See the documentation for details on how
-    to configure it on all your pages if they are more Maths-heavy than these
-    simple starter pages.
-
-<script id="MathJax-script" src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      ignoreHtmlClass: ".*|",
-      processHtmlClass: "arithmatex"
-    }
-  };
-
-  document$.subscribe(() => {
-    MathJax.startup.output.clearCache()
-    MathJax.typesetClear()
-    MathJax.texReset()
-    MathJax.typesetPromise()
-  })
-</script>
-
-## Task Lists
-
-> Go to [documentation](https://zensical.org/docs/authoring/lists/#using-task-lists)
-
-* [x] Install Zensical
-* [x] Configure `zensical.toml`
-* [x] Write amazing documentation
-* [ ] Deploy anywhere
-
-## Tooltips
-
-> Go to [documentation](https://zensical.org/docs/authoring/tooltips/)
-
-[Hover me][example]
-
-  [example]: https://example.com "I'm a tooltip!"
+문제가 생기면 [트러블슈팅](troubleshooting.md)을 참고하세요.
