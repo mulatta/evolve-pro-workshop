@@ -1,6 +1,7 @@
 .direnv/
 result
 result-*
+site/
 
 slides/node_modules/*
 
