@@ -7,6 +7,13 @@ title: EvolvePro Workshop
 info: |
   EvolvePro Workshop — AI 기반 단백질 진화 최적화
 transition: slide-left
+colorSchema: dark
+fonts:
+  sans: IBM Plex Sans KR
+  mono: IBM Plex Mono
+  provider: google
+themeConfig:
+  primary: '#4ecdc4'
 ---
 
 # EvolvePro Workshop
@@ -30,7 +37,7 @@ class: text-left
 
 # EvolvePro란?
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-8 mt-4">
 <div>
 
 - 단백질 서열 → **PLM 임베딩** 추출
@@ -38,18 +45,14 @@ class: text-left
 - **라운드당 10개** 데이터로 반복 학습
 - 다목적 최적화 가능
 
-<br>
-
-**기존**: 수천 개 변이체 스크리닝
-
-**EvolvePro**: 수십 개로 최적 변이체 도달
+<p class="mt-6 opacity-70">기존: 수천 개 스크리닝 → EvolvePro: <strong>수십 개</strong>로 도달</p>
 
 </div>
-<div>
+<div class="flex flex-col justify-center">
 
-<img src="/images/evolvepro_diagram.png" class="rounded shadow" />
+<img src="/images/evolvepro_diagram.png" class="rounded" />
 
-<p class="text-xs text-center opacity-60 mt-1">Jiang et al., Science (2024)</p>
+<p class="text-xs text-center opacity-50 mt-2">Jiang et al., Science (2024)</p>
 
 </div>
 </div>
@@ -69,28 +72,28 @@ flowchart LR
 
 <div class="grid grid-cols-4 gap-4 mt-6 text-xs">
 
-<div class="border rounded p-2">
+<div class="border border-current/20 rounded p-3">
 
 **Process**
 
 FASTA/CSV로 정리
 
 </div>
-<div class="border rounded p-2">
+<div class="border border-current/20 rounded p-3">
 
 **PLM**
 
 임베딩 벡터 추출 (GPU)
 
 </div>
-<div class="border rounded p-2">
+<div class="border border-current/20 rounded p-3">
 
 **EVOLVEpro**
 
 활성 예측 → 변이체 선택
 
 </div>
-<div class="border rounded p-2">
+<div class="border border-current/20 rounded p-3">
 
 **Plot**
 
@@ -104,7 +107,7 @@ FASTA/CSV로 정리
 
 # 오늘의 순서
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-12 mt-8">
 <div>
 
 ### 환경 준비
@@ -143,6 +146,8 @@ Windows 사용자를 위한 WSL2 설치부터
 
 > macOS/Linux 사용자는 이 단계를 건너뛰세요
 
+<br>
+
 ### 1. PowerShell (관리자) 에서 실행
 
 ```powershell
@@ -150,6 +155,8 @@ wsl --install
 ```
 
 완료 후 **PC 재부팅**
+
+<br>
 
 ### 2. Ubuntu 초기 설정
 
@@ -579,8 +586,8 @@ layout: end
 
 # 마무리
 
-<div class="grid grid-cols-3 gap-8 mt-8 text-sm">
-<div class="border rounded p-4">
+<div class="grid grid-cols-3 gap-6 mt-8 text-sm">
+<div class="border border-current/20 rounded p-5">
 
 **Colab 튜토리얼**
 
@@ -589,7 +596,7 @@ layout: end
 [Google Colab 열기](https://colab.research.google.com/drive/1YCWvR73ItSsJn3P89yk_GY1g5GEJUlgy)
 
 </div>
-<div class="border rounded p-4">
+<div class="border border-current/20 rounded p-5">
 
 **논문**
 
@@ -598,7 +605,7 @@ Jiang et al., *Science* (2024)
 "Rapid in silico directed evolution by a protein language model with EVOLVEpro"
 
 </div>
-<div class="border rounded p-4">
+<div class="border border-current/20 rounded p-5">
 
 **GitHub**
 
