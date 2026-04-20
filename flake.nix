@@ -22,6 +22,7 @@
       imports = [
         ./nix/formatter.nix
         ./nix/shell.nix
+        ./nix/slides.nix
       ];
 
       perSystem =
