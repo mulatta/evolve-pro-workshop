@@ -370,6 +370,7 @@ cd /workspace/$USER/
 git clone https://github.com/mat10d/EvolvePro.git
 cd EvolvePro
 ```
+<br>
 
 ### 2. EVOLVEpro 환경 생성
 
@@ -377,6 +378,7 @@ cd EvolvePro
 conda env create -f environment.yml
 conda activate evolvepro
 ```
+<br>
 
 ### 3. PLM 환경 생성 (임베딩 추출용)
 
@@ -402,6 +404,9 @@ conda activate plm
 python -c "import torch; print(f'CUDA: {torch.cuda.is_available()}')"
 python -c "import esm; print('ESM OK')"
 ```
+
+<br>
+
 
 예상 출력: `evolvepro OK` / `CUDA: True` / `ESM OK`
 
@@ -446,6 +451,8 @@ A1V,0.85
 </div>
 </div>
 
+<br> 
+
 ### 예제 데이터 확인
 
 ```bash
@@ -458,7 +465,7 @@ cd /workspace/$USER/EvolvePro && ls data/dms/
 
 ESM-2 모델로 각 변이체의 임베딩 벡터를 생성합니다
 
-```bash
+```bash {*}{maxHeight:'200px'}
 conda activate plm
 
 python evolvepro/plm/esm/extract.py \
@@ -486,9 +493,7 @@ python evolvepro/plm/esm/extract.py \
 
 # EVOLVEpro 실행
 
-<div class="text-sm">
-
-```bash
+```bash {*}{maxHeight:'200px'}
 conda activate evolvepro && cd /workspace/$USER/EvolvePro
 
 python scripts/dms/dms_main.py \
@@ -503,8 +508,6 @@ python scripts/dms/dms_main.py \
   --regression_types randomforest \
   --output_dir output/dms/workshop_test
 ```
-
-</div>
 
 | 파라미터 | 의미 |
 |----------|------|
@@ -535,6 +538,7 @@ python scripts/dms/dms_main.py \
 ```bash
 ls output/dms/workshop_test/
 ```
+<br>
 
 ### 시각화 실행
 
@@ -543,12 +547,14 @@ python scripts/plot.py \
   --input_dir output/dms/workshop_test \
   --output_dir output/plots/workshop_test
 ```
+<br>
 
 ### 결과 파일을 로컬로 복사 (내 컴퓨터에서)
 
 ```bash
 scp -r psi:/workspace/$USER/EvolvePro/output/plots/workshop_test ./
 ```
+<br>
 
 > `scp`는 SSH를 이용한 파일 복사 명령어입니다.
 > SSH 설정을 했으므로 `psi:`만으로 접속됩니다.
@@ -611,7 +617,6 @@ Jiang et al., *Science* (2024)
 
 [mat10d/EvolvePro](https://github.com/mat10d/EvolvePro)
 
-이슈/버그 리포트 환영
 
 </div>
 </div>
