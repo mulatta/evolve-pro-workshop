@@ -56,12 +56,12 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAA... user@hostname
 
 함께 전달할 정보:
 
-| 항목 | 예시 |
-|------|------|
-| 이름 | 홍길동 |
-| 사용자명 | `gildong` |
-| SSH 공개키 | `ssh-ed25519 AAAA...` (전체) |
-| 접근 호스트 | `psi` |
+| 항목        | 예시                         |
+| ----------- | ---------------------------- |
+| 이름        | 홍길동                       |
+| 사용자명    | `gildong`                    |
+| SSH 공개키  | `ssh-ed25519 AAAA...` (전체) |
+| 접근 호스트 | `psi`                        |
 
 !!! info "계정 생성 대기"
     관리자가 서버에 계정을 생성한 후 접속이 가능합니다. 계정이 만들어졌다는 연락을 받은 후 다음 단계를 진행하세요.
@@ -104,7 +104,7 @@ Host psi
 `nano` 편집기에서 저장하려면:
 
 1. ++ctrl+o++ → ++enter++ (저장)
-2. ++ctrl+x++ (종료)
+1. ++ctrl+x++ (종료)
 
 !!! tip "ControlMaster란?"
     첫 연결의 소켓을 10분간 유지합니다. 이후 같은 호스트로의 SSH/SCP/rsync가 재인증 없이 즉시 연결됩니다.
@@ -131,11 +131,11 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 
 ## 접속이 안 될 때
 
-| 증상 | 원인 | 해결 |
-|------|------|------|
-| `Connection refused` | 계정 미생성 또는 포트 오류 | 관리자에게 확인. 포트가 10022인지 확인 |
-| `Permission denied (publickey)` | SSH 키 불일치 | `cat ~/.ssh/id_ed25519.pub` 확인 후 재전달 |
-| `Connection timed out` | 네트워크 문제 | 인터넷 연결 확인. `ssh eta`로 점프 호스트 먼저 테스트 |
+| 증상                            | 원인                       | 해결                                                  |
+| ------------------------------- | -------------------------- | ----------------------------------------------------- |
+| `Connection refused`            | 계정 미생성 또는 포트 오류 | 관리자에게 확인. 포트가 10022인지 확인                |
+| `Permission denied (publickey)` | SSH 키 불일치              | `cat ~/.ssh/id_ed25519.pub` 확인 후 재전달            |
+| `Connection timed out`          | 네트워크 문제              | 인터넷 연결 확인. `ssh eta`로 점프 호스트 먼저 테스트 |
 
 ## 다음 단계
 

@@ -19,14 +19,14 @@ python evolvepro/plm/esm/extract.py \
 
 ## 파라미터 설명
 
-| 파라미터 | 설명 |
-|----------|------|
-| `esm2_t48_15B_UR50D` | ESM-2 15B 파라미터 모델 |
-| `data/dms/brenan/brenan.fasta` | 입력 FASTA 파일 |
-| `output/plm/esm/brenan` | 출력 디렉토리 |
-| `--toks_per_batch 512` | 배치당 토큰 수 (GPU 메모리에 맞게 조절) |
-| `--include mean` | 평균 풀링 임베딩 사용 |
-| `--concatenate_dir output/plm/esm/` | 결합된 결과 저장 디렉토리 |
+| 파라미터                            | 설명                                    |
+| ----------------------------------- | --------------------------------------- |
+| `esm2_t48_15B_UR50D`                | ESM-2 15B 파라미터 모델                 |
+| `data/dms/brenan/brenan.fasta`      | 입력 FASTA 파일                         |
+| `output/plm/esm/brenan`             | 출력 디렉토리                           |
+| `--toks_per_batch 512`              | 배치당 토큰 수 (GPU 메모리에 맞게 조절) |
+| `--include mean`                    | 평균 풀링 임베딩 사용                   |
+| `--concatenate_dir output/plm/esm/` | 결합된 결과 저장 디렉토리               |
 
 !!! info "첫 실행 시 모델 다운로드"
     첫 실행 시 ESM-2 모델을 자동으로 다운로드합니다. 15B 모델은 크기가 크므로 시간이 걸릴 수 있습니다.

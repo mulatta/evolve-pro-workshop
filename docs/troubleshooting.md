@@ -2,12 +2,12 @@
 
 ## SSH 접속 문제
 
-| 증상 | 원인 | 해결 |
-|------|------|------|
-| `Connection refused` | 계정 미생성 또는 포트 오류 | 관리자에게 확인. `~/.ssh/config`에서 포트가 10022인지 확인 |
-| `Permission denied (publickey)` | SSH 키 불일치 | `cat ~/.ssh/id_ed25519.pub`으로 공개키 확인 후 관리자에게 재전달 |
-| `Connection timed out` | 네트워크 문제 | 인터넷 연결 확인. `ssh eta`로 점프 호스트 먼저 테스트 |
-| `Host key verification failed` | 서버 키 변경됨 | `ssh-keygen -R jump.sjanglab.org`으로 기존 키 제거 후 재접속 |
+| 증상                            | 원인                       | 해결                                                             |
+| ------------------------------- | -------------------------- | ---------------------------------------------------------------- |
+| `Connection refused`            | 계정 미생성 또는 포트 오류 | 관리자에게 확인. `~/.ssh/config`에서 포트가 10022인지 확인       |
+| `Permission denied (publickey)` | SSH 키 불일치              | `cat ~/.ssh/id_ed25519.pub`으로 공개키 확인 후 관리자에게 재전달 |
+| `Connection timed out`          | 네트워크 문제              | 인터넷 연결 확인. `ssh eta`로 점프 호스트 먼저 테스트            |
+| `Host key verification failed`  | 서버 키 변경됨             | `ssh-keygen -R jump.sjanglab.org`으로 기존 키 제거 후 재접속     |
 
 ### 단계별 디버깅
 
@@ -25,18 +25,18 @@ ssh psi
 
 ## Python / conda 문제
 
-| 증상 | 해결 |
-|------|------|
-| `conda: command not found` | `source /opt/conda/etc/profile.d/conda.sh` 실행 |
-| `ModuleNotFoundError` | 올바른 환경인지 확인: `conda activate evolvepro` 또는 `conda activate plm` |
-| 어떤 환경이 활성화되었는지 모름 | `conda env list`로 현재 환경 확인 (별표 표시) |
+| 증상                            | 해결                                                                       |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| `conda: command not found`      | `source /opt/conda/etc/profile.d/conda.sh` 실행                            |
+| `ModuleNotFoundError`           | 올바른 환경인지 확인: `conda activate evolvepro` 또는 `conda activate plm` |
+| 어떤 환경이 활성화되었는지 모름 | `conda env list`로 현재 환경 확인 (별표 표시)                              |
 
 ## GPU 문제
 
-| 증상 | 해결 |
-|------|------|
-| `CUDA out of memory` | `--toks_per_batch` 줄이기: 512 → 256 → 128 |
-| `CUDA: False` | `nvidia-smi`로 GPU 상태 확인. 드라이버 문제면 관리자 문의 |
+| 증상                       | 해결                                                       |
+| -------------------------- | ---------------------------------------------------------- |
+| `CUDA out of memory`       | `--toks_per_batch` 줄이기: 512 → 256 → 128                 |
+| `CUDA: False`              | `nvidia-smi`로 GPU 상태 확인. 드라이버 문제면 관리자 문의  |
 | `RuntimeError: CUDA error` | 다른 사용자가 GPU를 점유 중일 수 있음. `nvidia-smi`로 확인 |
 
 ## 유용한 명령어

@@ -26,36 +26,36 @@ python scripts/dms/dms_main.py \
 
 ## 주요 파라미터
 
-| 파라미터 | 값 | 설명 |
-|----------|-----|------|
-| `--num_simulations` | 3 | 반복 실험 횟수 (통계적 안정성) |
-| `--num_iterations` | 5 | Active learning 라운드 수 |
-| `--num_mutants_per_round` | 10 | 라운드당 선택할 변이체 수 |
-| `--num_final_round_mutants` | 50 | 마지막 라운드에서 예측할 변이체 수 |
-| `--learning_strategies` | topn | 변이체 선택 전략 |
-| `--regression_types` | randomforest | 회귀 모델 종류 |
+| 파라미터                    | 값           | 설명                               |
+| --------------------------- | ------------ | ---------------------------------- |
+| `--num_simulations`         | 3            | 반복 실험 횟수 (통계적 안정성)     |
+| `--num_iterations`          | 5            | Active learning 라운드 수          |
+| `--num_mutants_per_round`   | 10           | 라운드당 선택할 변이체 수          |
+| `--num_final_round_mutants` | 50           | 마지막 라운드에서 예측할 변이체 수 |
+| `--learning_strategies`     | topn         | 변이체 선택 전략                   |
+| `--regression_types`        | randomforest | 회귀 모델 종류                     |
 
 ## 학습 전략 옵션
 
 어떤 변이체를 다음 라운드에 선택할 것인가?
 
-| 전략 | 설명 | 특성 |
-|------|------|------|
-| `random` | 무작위 선택 | 기준선 비교용 |
-| `topn` | 예측 상위 N개 선택 | 활용(exploitation) 중심 |
-| `topn2bottomn2` | 상위/하위 각 N/2개 선택 | 탐색+활용 균형 |
-| `dist` | 다양성 기반 선택 | 탐색(exploration) 중심 |
+| 전략            | 설명                    | 특성                    |
+| --------------- | ----------------------- | ----------------------- |
+| `random`        | 무작위 선택             | 기준선 비교용           |
+| `topn`          | 예측 상위 N개 선택      | 활용(exploitation) 중심 |
+| `topn2bottomn2` | 상위/하위 각 N/2개 선택 | 탐색+활용 균형          |
+| `dist`          | 다양성 기반 선택        | 탐색(exploration) 중심  |
 
 ## 회귀 모델 옵션
 
-| 모델 | 설명 |
-|------|------|
-| `randomforest` | Random Forest (기본, 권장) |
-| `ridge` | Ridge 회귀 |
-| `lasso` | Lasso 회귀 |
-| `gradientboosting` | Gradient Boosting |
-| `knn` | K-Nearest Neighbors |
-| `gp` | Gaussian Process |
+| 모델               | 설명                       |
+| ------------------ | -------------------------- |
+| `randomforest`     | Random Forest (기본, 권장) |
+| `ridge`            | Ridge 회귀                 |
+| `lasso`            | Lasso 회귀                 |
+| `gradientboosting` | Gradient Boosting          |
+| `knn`              | K-Nearest Neighbors        |
+| `gp`               | Gaussian Process           |
 
 ## 출력 확인
 
