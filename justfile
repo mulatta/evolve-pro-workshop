@@ -13,3 +13,11 @@ slide-build:
 # Preview built slides
 slide-preview: slide-build
     python3 -m http.server -d result/ 8080
+
+# Start zensical dev server
+docs:
+    zensical serve
+
+# Build docs
+docs-build:
+    nom build .#docs

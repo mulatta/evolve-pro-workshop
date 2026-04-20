@@ -20,6 +20,7 @@
         "aarch64-darwin"
       ];
       imports = [
+        ./nix/docs.nix
         ./nix/formatter.nix
         ./nix/shell.nix
         ./nix/slides.nix
