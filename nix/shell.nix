@@ -3,7 +3,9 @@
     { pkgs, ... }:
     {
       devShells.default = pkgs.mkShell {
-        packages = [ ];
+        packages = with pkgs; [
+          zensical
+        ];
       };
     };
 }
