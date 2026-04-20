@@ -1,3 +1,5 @@
 .direnv/
 result
 result-*
+
+slides/node_modules/*
