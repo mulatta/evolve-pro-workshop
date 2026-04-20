@@ -3,3 +3,8 @@ result
 result-*
 
 slides/node_modules/*
+
+
+# APM dependencies
+apm_modules/
+.claude/skills/

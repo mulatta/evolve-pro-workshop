@@ -1,0 +1,11 @@
+lockfile_version: '1'
+generated_at: '2026-04-20T12:00:39.715477+00:00'
+apm_version: 0.8.11
+dependencies:
+- repo_url: slidevjs/slidev
+  host: github.com
+  resolved_commit: a6b7f24d641693d69b65218a6de8bc5874ca8ebf
+  package_type: apm_package
+  deployed_files:
+  - .claude/skills/slidev
+  content_hash: sha256:557c96320e224d7273d8eea7cd3992c5e40f19bf61b819513a3970c27f9d7fb3
